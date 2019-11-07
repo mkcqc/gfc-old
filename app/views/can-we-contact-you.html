@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Can we contact you? | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="can-we-share">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form id="can-we-contact-you" class="form" action="/can-we-contact-you-answer" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                Can we contact you?
+              </h1>
+            </legend>
+
+            <div class="govuk-inset-text">
+              You can give anonymous feedback. But it helps us more if we can ask questions or check details with you. You can choose whether we phone or email you.
+            </div>
+
+            <p>We'll only use your details to ask you about your feedback. We'll keep them confidential. The only exception is if you tell us about:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>abuse or serious neglect</li>
+              <li>a serious crime</li>
+            </ul>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="can-we-contact-you-1" name="can-we-contact-you" type="radio" value="Yes, you can contact me" {{ checked( "can-we-contact-you", "Yes, you can contact me" ) }}>
+                <label class="govuk-label govuk-radios__label" for="can-we-contact-you-1">
+                  Yes, you can contact me
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="can-we-contact-you-2" name="can-we-contact-you" type="radio" value="No, I'd prefer you not to contact me" {{ checked( "can-we-contact-you", "No, I'd prefer you not to contact me" ) }}>
+                <label class="govuk-label govuk-radios__label" for="can-we-contact-you-2">
+                  No, I'd prefer you not to contact me
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

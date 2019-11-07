@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Have you told them? | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% include "includes/phase-banner.html" %}
+
+{% if data['service-type'] == "remote" %}
+  <a class="govuk-back-link" href="what-date-it-happened">Back</a>
+{% else %}
+  <a class="govuk-back-link" href="where-it-happened">Back</a>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form id="have-you-told-the-service" class="form" action="have-you-worked-there" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="have-you-told-the-service-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                Have you told {{ data['service-name'] }} about this?
+              </h1>
+            </legend>
+            <span id="have-you-told-the-service-hint" class="govuk-hint">
+              Every service should have a procedure for making formal complaints. If you make a complaint they should look into it and send you a response.
+            </span>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="have-you-told-the-service-1" name="have-you-told-the-service" type="radio" value="I've told them but I did not make a formal complaint" {{ checked( "have-you-told-the-service", "I've told them but I did not make a formal complaint" ) }}>
+                <label class="govuk-label govuk-radios__label" for="have-you-told-the-service-1">
+                  I've told them but I did not make a formal complaint
+                </label> </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="have-you-told-the-service-2" name="have-you-told-the-service" type="radio" value="I've made a formal complaint" {{ checked( "have-you-told-the-service", "I've made a formal complaint" ) }}>
+                <label class="govuk-label govuk-radios__label" for="have-you-told-the-service-2">
+                  I've made a formal complaint
+                </label> </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="have-you-told-the-service-3" name="have-you-told-the-service" type="radio" value="No, I have not told them" {{ checked( "have-you-told-the-service", "No, I have not told them" ) }}>
+                <label class="govuk-label govuk-radios__label" for="have-you-told-the-service-3">
+                  No, I have not told them
+                </label> </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Abuse or neglect | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="when-it-happened">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form id="abuse-or-neglect" class="form" action="/is-someone-at-risk-answer" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                Is someone at risk of abuse or neglect?
+              </h1>
+            </legend>
+            <p>If they are, we'll need to take urgent action. This is called safeguarding.</p>
+
+            <div class="govuk-inset-text">
+
+                <p>Abuse is when someone harms or mistreats someone else.</p>
+
+                <p>Neglect is when someone is not cared for properly. For example, the staff do not let them have enough water, food, heating or medicine. Or they're not getting the help they need to wash or being helped to the toilet.</p>
+
+            </div>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="risk-of-harm-1" name="risk-of-harm" type="radio" value="No, no one's at risk of abuse or neglect">
+                <label class="govuk-label govuk-radios__label" for="risk-of-harm-1">
+                  No, no one's at risk of abuse or neglect
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="risk-of-harm-2" name="risk-of-harm" type="radio" value="Yes, someone's at risk of abuse or neglect">
+                <label class="govuk-label govuk-radios__label" for="risk-of-harm-2">
+                  Yes, someone's at risk of abuse or neglect
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

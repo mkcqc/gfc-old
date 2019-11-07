@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What date it happened - Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="give-your-feedback">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="what-date-it-happened-answer" method="post">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--xl" for="exact-date">
+              Can you be more exact about when it happened?
+            </label>
+          </h1>
+          <span id="exact-date-hint" class="govuk-hint">
+            For example, can you give a date, month or year? (optional)
+          </span>
+          <input class="govuk-input govuk-!-width-two-thirds" id="exact-date" name="exact-date" type="text" value="{{ data['exact-date'] }}">
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

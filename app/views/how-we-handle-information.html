@@ -1,0 +1,231 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  How we use your information | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+  <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+  {% include "includes/phase-banner.html" %}
+
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/">Home</a>
+      </li>
+    </ol>
+  </div>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        How we handle information
+      </h1>
+
+      <div id="contents" class="app-c-contents-list-with-body">
+        <div class="responsive-bottom-margin">
+          <nav role="navigation" class="gem-c-contents-list gem-c-contents-list--no-underline">
+            <h2 class="gem-c-contents-list__title">Contents</h2>
+
+            <ol class="gem-c-contents-list__list">
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link" href="#what-we-use-feedback-for">What we use feedback for</a>
+              </li>
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link" href="#how-we-store-feedback-and-contact-details">How we store feedback and contact details</a>
+              </li>
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link" href="#how-long-we-keep-them-for">How long we keep them for</a>
+              </li>
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link" href="#data-protection-laws-and-standards">Data protection laws and standards</a>
+              </li>
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link" href="#staying-anonymous">Staying anonymous can affect how we use feedback</a>
+              </li>
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link" href="#keeping-your-name-confidential">When we can and can't keep your name confidential</a>
+              </li>
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link" href="#the-service-might-know-who-you-are">The service might still work out who you are</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+          <h2 class="govuk-heading-l" id="what-we-use-feedback-for">
+            What we use feedback for
+          </h2>
+
+          <h3 class="govuk-heading-m">
+            We monitor services
+          </h3>
+
+          <p>Our job is to monitor and inspect health and social care services. One of the ways we monitor them is by using feedback from people like you. This might be about:</p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>your own experiences of care</li>
+            <li>friends' or relatives' experiences</li>
+            <li>things you've found out or seen because of your job or volunteer work</li>
+          </ul>
+
+          <p>We analyse what you tell us alongside other information. This might be information from the service itself or what we see when we carry out inspections. This helps us build up a picture of the quality of care the service gives.</p>
+
+          <p>We also use it to help us build up a picture of the quality of care more widely. For example, we sometimes look at the quality of care across groups of services. These might be GP practices in one area or care homes owned by one company. We look at care given to particular groups, for example older people or people with long-term conditions. And we also look at care across different areas of the country.</p>
+
+          <h3 class="govuk-heading-m">
+            We publish information about quality
+          </h3>
+
+          <p>We analyse the information people give us to find trends and themes. We often publish our conclusions. In the future, we'd like to publish data about things like types of feedback or themes - for example, the number of concerns about care homes in an area of the country. This is to help other people with their research. We will not include details of individual feedback or people's names.</p>
+
+          <p>We sometimes use quotes from people's feedback in:</p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>the reports we write when we inspect services</li>
+            <li>reports about the quality of care in an area, across groups of services or for certain groups of people</li>
+            <li>reports about topics - like particular themes or the wider health and care system</li>
+          </ul>
+
+          <p>We either use people's actual words or a summary of what they said. We never give their names or quote them in a way that makes it obvious who they are - we only use anonymous quotes.</p>
+
+          <h2 class="govuk-heading-l" id="how-we-store-feedback-and-contact-details">
+            How we store feedback and contact details
+          </h2>
+
+          <p>We store your feedback in a database. We own the database and it's hosted in the UK. If you give us your name and contact details, we store them in the same way.</p>
+
+          <p>We transfer this information to other systems so our staff can use it. We make sure the only members of our staff who can see it are people who need it for their jobs. Our systems are secure, owned by us and based in the UK.</p>
+
+          <h3 class="govuk-heading-m" id="how-long-we-keep-them-for">
+            How long we keep them for
+          </h3>
+
+          <p>There are several things we do with the information we collect through this form. How long we keep the information depends on what we use it for. This table gives some examples.</p>
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="col">What we use the information for</th>
+                <th class="govuk-table__header" scope="col">How long we keep it</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="row">Safeguarding (protecting people from things like abuse or neglect)</th>
+                <td class="govuk-table__cell">3 years</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="row">Complaints about CQC</th>
+                <td class="govuk-table__cell">5 years</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="row">Enforcement (taking action when people do not follow the regulations)</th>
+                <td class="govuk-table__cell">7 years after the action has ended</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>There are some types of information we keep for longer. We sometimes keep information permanently - but only once we've removed personal details that identify people.</p>
+
+          <p>You can find out more about how long we keep information by reading our <a href="https://www.cqc.org.uk/about-us/our-policies/privacy-statement" class="govuk-link" target="_blank">privacy statement</a>.</p>
+
+          <h3 class="govuk-heading-m" id="data-protection-laws-and-standards">
+            Data protection laws and standards
+          </h3>
+
+          <p>To keep your information safe, we follow:</p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>the General Data Protection Regulation (GDPR) and the Data Protection Act 2018</li>
+            <li>our own policies on handling information</li>
+            <li>our code of practice on confidential personal information</li>
+          </ul>
+
+          <p><a href="https://www.cqc.org.uk/about-us/our-policies/privacy-statement" class="govuk-link">Read our privacy statement</a> to find out more about how we handle personal information and about your rights.</p>
+
+          <h2 class="govuk-heading-l" id="staying-anonymous">
+            Staying anonymous can affect how we use feedback
+          </h2>
+
+          <p>You do not have to give your name or contact details when you give us feedback about an experience of care. But if you do stay anonymous, it can make it harder for us to take action.</p>
+
+          <p>This is because we sometimes need to get in touch with you to follow up. This might mean asking extra questions or getting more detail.</p>
+
+          <h3 class="govuk-heading-m" id="keeping-your-name-confidential">
+            When we can and can't keep your name confidential
+          </h3>
+
+          <p>If you give us your name, we'll keep it confidential unless you tell us:</p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>someone is in danger of serious harm, like abuse or neglect (a safeguarding concern)</li>
+            <li>someone has committed a serious crime</li>
+          </ul>
+
+          <p>If that's the case, we may have to pass everything you've told us to the police, the council or another public body.</p>
+
+          <h3 class="govuk-heading-m" id="the-service-might-know-who-you-are">
+            The service might still work out who you are
+          </h3>
+
+          <p>You can also ask us not to share your feedback with the service at all. This can help if it's important they do not find out who you are.</p>
+
+          <p>We may still have to act on your concern. For example, if you tell us a service has falsified their records, we may visit them and ask to see the records. This could lead them to guess someone has contacted us.</p>
+
+          <div class="app-c-contents-list-with-body__link-container">
+          	<a class="app-c-back-to-top dont-print" href="#contents">
+          		<svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+          			<path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          		</svg>
+          		Contents
+          	</a>
+          </div>
+
+        </div>
+
+      {% include "includes/contents-footer.html" %}
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="https://www.cqc.org.uk/about-us/our-policies/privacy-statement" target="_blank">
+                Read our full privacy statement
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+
+  </div>
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

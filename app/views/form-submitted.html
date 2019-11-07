@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  You've already submitted your feedback - Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/">Home</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        You've already submitted your feedback
+      </h1>
+
+      <p class="govuk-body">You can't go back to your answers after you've submitted them.</p>
+
+      <p class="govuk-body">If you want to add to your feedback, you can <a  class="govuk-link" href="/">start a new form</a>.</p>
+
+      <p class="govuk-body">Or <a  class="govuk-link" href="report-a-problem">report a technical problem</a> if you think something's gone wrong.</p>
+
+    </div>
+  </div>
+
+  {% endblock %}
+
+  {% block footer %}
+
+    {% include "includes/footer.html" %}
+
+  {% endblock %}

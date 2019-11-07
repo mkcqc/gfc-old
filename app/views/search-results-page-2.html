@@ -1,0 +1,202 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {{ data['service-search'] }} - search results | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="search-results">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Results for "{{ data['service-search'] }}"</h1>
+
+    <form class="form" action="search-results" method="post">
+      <div class="govuk-form-group">
+        <input name="keywords" value="{{ data['service-search'] }}" class="govuk-input gem-c-input--search-icon" id="finder-keyword-search" type="search">
+      </div>
+    </form>
+
+    <div class="search-divider"></div>
+
+    <p><a href="tell-us-which-service" class="govuk-link">I can't find the service I want to tell you about</a></p>
+
+  </div><!--end two thirds-->
+</div><!--end govuk-grid-row-->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+
+        <!--accordians between here...-->
+
+{% include "includes/search-filters.html" %}
+
+        <!--...and here-->
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    <p class="search-results-total">43 results</p>
+    <ul class="search-results">
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Bhandal Dental Practice - 835 Stratford Road">Bhandal Dental Practice - 835 Stratford Road</a>
+        <p>835 Stratford Road<br>Sparkhill<br>Birmingham<br>B11 4DA</p>
+        <p class="service-type">Dentists</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=First 4 Group - Stratford Villace Surgery">First 4 Health Group - Stratford Village Surgery</a>
+        <p>50C Romford Road<br>Stratford<br>London<br>E15 4BZ</p>
+        <p class="service-type">Doctors and GPs</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Stratford Court">Stratford Court</a>
+        <p>35 Highfield Road<br>Hall Green<br>Birmingham<br>B28 0EU</p>
+        <p class="service-type">Care homes</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Stratford Lodge">Stratford Lodge</a>
+        <p>4 Park Lane<br>Salisbury<br>SP1 3NP</p>
+        <p class="service-type">Care homes</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Stratford Health Centre">Stratford Health Centre</a>
+        <p>121-123 The Grove<br>London<br>E15 1EN<br>
+        Postcode</p>
+        <p class="service-type">Doctors and GPs</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Stratford Village Dental Practice">Stratford Village Dental Practice</a>
+        <p>42A Romford Road<br>London<br>E15 4BZ</p>
+        <p class="service-type">Dentists</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Stratford Village Surgery">Stratford Village Surgery</a>
+        <p>50c Romford Road<br>London<br>E15 4BZ</p>
+        <p class="service-type">Doctors and GPs</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Bluebird Care (Stratford & Warwick)">Bluebird Care (Stratford & Warwick)</a>
+        <p>9-11 Smith Street<br>Warwick<br>CV34 4JA</p>
+        <p class="service-type">Home care agencies</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Bluebird Care Docklands">Bluebird Care Docklands</a>
+        <p>Unit 8 Skylines Village<br>Limeharbour<br>London<br>E14 9TS</p>
+        <p class="service-type">Home care agencies</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Fenny Mews & Stratford View">Fenny Mews & Stratford View</a>
+        <p>100-108 Watling Street<br>Bletchley<br>Milton Keynes<br>MK1 1BW</p>
+        <p class="service-type">Home care agencies</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=UK Smiles Dental Practice Limited - Stratford">UK Smiles Dental Practice Limited - Stratford</a>
+        <p>30 Vicarage Lane<br>London<br>E15 4ES</p>
+        <p class="service-type">Dentists</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Select Lifestyles Limited - 512-514 Stratford Road">Select Lifestyles Limited - 512-514 Stratford Road</a>
+        <p>Shirley<br>Solihull<br>B90 4AY</p>
+        <p class="service-type">Care homes</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Trinity Court Surgery">Trinity Court Surgery</a>
+        <p>Stratford Healthcare<br>Arden Street<br>Stratford-upon-Avon<br>CV37 6HJ</p>
+        <p class="service-type">Doctors and GPs</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=BPAS - Healthcare">BPAS - Healthcare</a>
+        <p>5th Floor<br>20 Timothys Bridge Road<br>Stratford Enterprise Park<br>Stratford-upon-Avon<br>CV37 9BF</p>
+        <p class="service-type">Clinics</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Shipston Home Nursing CIO">Shipston Home Nursing CIO</a>
+        <p>Ellen Badger Hospital<br>Stratford Road<br>Shipston On Stour<br>CV36 4AX</p>
+        <p class="service-type">Home care agencies</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Cherry Trees">Cherry Trees</a>
+        <p>Stratford Road<br>Oversley Green<br>Alcester<br>B49 6LN</p>
+        <p class="service-type">Care homes</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Bidford Health Centre">Bidford Health Centre</a>
+        <p>Stratford Road<br>Bidford-on-Avon<br>Alcester<br>B50 4LX</p>
+        <p class="service-type">Doctors and GPs</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Ellen Badger Hospital">Ellen Badger Hospital</a>
+        <p>Stratford Road<br>Shipston On Stour<br>CV36 4AX</p>
+        <p class="service-type">Hospitals</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Tiddington Court Limited">Tiddington Court Limited</a>
+        <p>Knights Lane<br>Tiddington<br>Stratford-upon-Avon<br>CV37 7BP</p>
+        <p class="service-type">Home care agencies</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Ambleside">Ambleside</a>
+        <p>Evesham Road<br>Dodwell<br>Stratford-upon-Avon<br>CV37 9ST</p>
+        <p class="service-type">Care homes</p>
+      </li>
+    </ul>
+
+    <nav class="gem-c-pagination" role="navigation" aria-label="Pagination">
+      <ul class="gem-c-pagination__list">
+          <li class="gem-c-pagination__item gem-c-pagination__item--previous">
+            <a href="search-results">
+              <span class="gem-c-pagination__link-title">
+                <svg class="gem-c-pagination__link-icon" xmlns="http://www.w3.org/2000/svg" height="13" width="17" viewBox="0 0 17 13">
+                  <path fill="currentColor" d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+                </svg>
+                <span class="gem-c-pagination__link-text">
+                  Previous page
+                </span>
+              </span>
+                <span class="gem-c-pagination__link-divider visually-hidden">:</span>
+                <span class="gem-c-pagination__link-label">1 of 3</span>
+            </a>
+          </li>
+          <li class="gem-c-pagination__item gem-c-pagination__item--next">
+            <a href="search-results-page-3" class="gem-c-pagination__link" rel="next" >
+              <span class="gem-c-pagination__link-title">
+                <svg class="gem-c-pagination__link-icon" xmlns="http://www.w3.org/2000/svg" height="13" width="17" viewBox="0 0 17 13">
+                  <path fill="currentColor" d="m10.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                </svg>
+                <span class="gem-c-pagination__link-text">
+                  Next page
+                </span>
+              </span>
+                <span class="gem-c-pagination__link-divider visually-hidden">:</span>
+                <span class="gem-c-pagination__link-label">3 of 3</span>
+            </a>
+          </li>
+      </ul>
+    </nav>
+
+
+  </div>
+</div>
+
+{% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

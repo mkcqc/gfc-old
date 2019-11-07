@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {{ data['service-search'] }} - search results | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="find-a-service-page-2">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Results for "{{ data['service-search'] }}"</h1>
+
+    <form class="form" action="search-results" method="post">
+      <div class="govuk-form-group">
+        <input name="keywords" value="{{ data['service-search'] }}" class="govuk-input gem-c-input--search-icon" id="finder-keyword-search" type="search">
+      </div>
+    </form>
+
+    <div class="search-divider"></div>
+
+    <p><a href="tell-us-which-service" class="govuk-link">I can't find the service I want to tell you about</a></p>
+
+  </div><!--end two thirds-->
+</div><!--end govuk-grid-row-->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+
+        <!--accordians between here...-->
+
+      {% include "includes/search-filters.html" %}
+
+        <!--...and here-->
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    <p class="search-results-total">43 results</p>
+    <ul class="search-results">
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Bancroft Gardens Residential Home">Bancroft Gardens Residential Home</a>
+        <p>Waterside<br>Stratford-upon-Avon<br>CV37 6BA</p>
+        <p class="service-type">Care homes</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=Barnsfield Care Agency">Barnfield Care Agency</a>
+        <p>c/o Bancroft Gardens Residental Home<br>Waterside<br>Stratford-upon-Avon<br>CV37 6BA</p>
+        <p class="service-type">Home care agencies</p>
+      </li>
+      <li class="search-result">
+        <a href="what-you-want-to-tell-us-about?service-name=People in Action - Four Gables">People in Action - Four Gables</a>
+        <p>Ingon Lane<br>Snitterfield<br>Stratford-upon-Avon<br>CV37 0QE</p>
+        <p class="service-type">Care homes</p>
+      </li>
+    </ul>
+
+    <nav class="gem-c-pagination" role="navigation" aria-label="Pagination">
+      <ul class="gem-c-pagination__list">
+          <li class="gem-c-pagination__item gem-c-pagination__item--previous">
+            <a href="search-results-page-2">
+              <span class="gem-c-pagination__link-title">
+                <svg class="gem-c-pagination__link-icon" xmlns="http://www.w3.org/2000/svg" height="13" width="17" viewBox="0 0 17 13">
+                  <path fill="currentColor" d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+                </svg>
+                <span class="gem-c-pagination__link-text">
+                  Previous page
+                </span>
+              </span>
+                <span class="gem-c-pagination__link-divider visually-hidden">:</span>
+                <span class="gem-c-pagination__link-label">2 of 3</span>
+            </a>
+          </li>
+      </ul>
+    </nav>
+
+
+  </div>
+</div>
+
+{% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

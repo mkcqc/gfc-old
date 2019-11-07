@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Find a service | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="start">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form id="find-a-service" class="form" action="find-a-service-answer" method="post">
+
+        <h1 class="govuk-heading-xl">Find the service you want to tell us about</h1>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="service-search">
+            Search by service name or address
+          </label>
+          <span id="service-search-hint" class="govuk-hint">
+            You do not need to use the whole name or address. For example, 'Great Ormond St WC1N' will find Great Ormond Street Hospital.
+          </span>
+          <input class="govuk-input govuk-!-width-two-thirds" id="service-search" name="service-search" type="text" value="{{ data['service-search'] }}" aria-describedby="service-search-hint">
+        </div>
+
+        <button class="govuk-button">Search</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {{ data['service-search'] }} - search results | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="find-a-service">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">There are no results matching your search</h1>
+
+    <form class="form" action="search-results" method="post">
+      <div class="govuk-form-group">
+        <input name="keywords" value="{{ data['service-search'] }}" class="govuk-input" id="finder-keyword-search" type="search"><button class="search-button">Search</button>
+      </div>
+    </form>
+
+    <div class="search-divider"></div>
+
+  </div><!--end two thirds-->
+</div><!--end govuk-grid-row-->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="search-results-total">0 results</p>
+    <p class="govuk-body">Improve your search results by:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>double-checking your spelling</li>
+      <li>using fewer words</li>
+      <li>trying something less specific</li>
+      <li>if you searched for the service name, try something else - like a postcode</li>
+    </ul>
+    <p>If you cannot find the service you want to tell us about, <a href="tell-us-which-service" class="govuk-link">tell us the name you know it by or describe where it is</a>.</p>
+  </div>
+</div>
+
+{% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

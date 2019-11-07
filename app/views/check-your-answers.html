@@ -1,0 +1,339 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">Check your answers before sending your feedback</h1>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What you want to tell us about
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['what-do-you-want-to-tell'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="what-you-want-to-tell-us-about">
+              Change<span class="govuk-visually-hidden"> the type of experience</span>
+            </a>
+          </dd>
+        </div>
+        {% if data['when-did-it-happen'] == None %}
+        <!-- question not applicable -->
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            When it happened
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['when-did-it-happen'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="when-it-happened">
+              Change<span class="govuk-visually-hidden"> when it happened</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        {% if data['risk-of-harm'] == None %}
+        <!-- question not applicable -->
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Is someone at risk?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['risk-of-harm'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="abuse-or-neglect">
+              Change<span class="govuk-visually-hidden"> if someone's at risk of abuse or neglect</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        {% if data['who-have-you-told'] == None %}
+        <!-- question not applicable -->
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Who you've told
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['who-have-you-told'] == 'Neither of these' %}
+              Neither the police or council
+            {% else %}
+              {{ data['who-have-you-told'] }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="have-you-told-the-police-or-council">
+              Change<span class="govuk-visually-hidden"> who has been told</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        {% if data['exact-date'] == '' %}
+        <!-- question not applicable -->
+        {% elseif data['what-do-you-want-to-tell'] == 'Good experience' %}
+        <!-- question not applicable -->
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['exact-date'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="give-your-feedback">
+              Change<span class="govuk-visually-hidden"> date</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        {% if data['exact-location'] == '' %}
+        <!-- question not applicable -->
+        {% elseif data['what-do-you-want-to-tell'] == 'Good experience' %}
+        <!-- question not applicable -->
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Exact location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['exact-location'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="give-your-feedback">
+              Change<span class="govuk-visually-hidden"> location</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your feedback
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['give-your-feedback'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="give-your-feedback">
+              Change<span class="govuk-visually-hidden"> feedback</span>
+            </a>
+          </dd>
+        </div>
+        {% if data['have-you-told-the-service'] == None %}
+        <!-- question not applicable -->
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Have you told the service?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['have-you-told-the-service'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="have-you-told-the-service">
+              Change<span class="govuk-visually-hidden"> told the service</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        {% if data['have-you-worked-there'] == None %}
+        <!-- question not applicable -->
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Have you worked there?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['have-you-worked-there'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="have-you-worked-there">
+              Change<span class="govuk-visually-hidden"> employed by provider</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        {% if data['can-we-share'] == None %}
+        <!-- question not applicable -->
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Can we share your feedback with the service?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['can-we-share'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="can-we-share">
+              Change<span class="govuk-visually-hidden"> share with provider</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        {% if data['can-we-contact-you'] == None %}
+        <!-- question not applicable -->
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Can we contact you?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['can-we-contact-you'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="can-we-contact-you">
+              Change<span class="govuk-visually-hidden"> contact</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        {% if data['first-name'] == '' %}
+        <!-- question not applicable -->
+        {% elseif data['can-we-contact-you'] != 'Yes, you can contact me' %}
+        <!-- question not applicable -->
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Full name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['full-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="your-contact-details">
+              Change<span class="govuk-visually-hidden"> full name</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        {% if data['contact-phone'] == '' %}
+        <!-- question not applicable -->
+        {% elseif data['can-we-contact-you'] != 'Yes, you can contact me' %}
+        <!-- question not applicable -->
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Telephone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['contact-phone'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="your-contact-details">
+              Change<span class="govuk-visually-hidden"> telephone number</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        {% if data['contact-email'] == '' %}
+        <!-- question not applicable -->
+        {% elseif data['can-we-contact-you'] != 'Yes, you can contact me' %}
+        <!-- question not applicable -->
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['contact-email'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="your-contact-details">
+              Change<span class="govuk-visually-hidden"> email address</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        {% if data['heard-from-a-charity'] == None %}
+        <!-- question not applicable -->
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Did you come through a charity?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['heard-from-a-charity'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="did-you-hear-about-this-form-from-a-charity">
+              Change<span class="govuk-visually-hidden"> how you found out about this form</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        {% if data['heard-from-a-charity'] != 'Yes' %}
+        <!-- question not applicable -->
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name of charity
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['which-charity'] != 'another charity' %}
+            {{ data['which-charity'] }}
+            {% elseif data['which-charity'] == 'another charity' %}
+            {{ data['another-charity-name'] }}{{ data['another-charity-no-name'] }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="tell-us-which-charity">
+              Change<span class="govuk-visually-hidden"> the name of the charity</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+      </dl>
+
+      <h2 class="govuk-heading-m">Now send your feedback</h2>
+
+      <p class="govuk-body">
+        You are about to send your feedback about {{ data['service-name'] }}.
+      </p>
+
+      <form action="/you-have-sent-your-feedback" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button">
+          Submit feedback
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Where it happened - Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="what-date-it-happened">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="have-you-told-the-service" method="post">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--xl" for="exact-location">
+              Can you tell us exactly where it happened?
+            </label>
+          </h1>
+          <span id="exact-location-hint" class="govuk-hint">
+            For example, {% if data['service-type'] == "hospital" %}which ward or department{% elseif data['service-type'] == "home-care" %}was it at home or somewhere else{% else %}was it a particular room{% endif %}? (optional)
+          </span>
+          <input class="govuk-input govuk-!-width-two-thirds" id="exact-location" name="exact-location" type="text" value="{{ data['exact-location'] }}">
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your experience | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+    {% if data['service-name'] != 'the service' %}
+
+      <a class="govuk-back-link" href="search-results">Back</a>
+
+    {% else %}
+
+      <a class="govuk-back-link" href="tell-us-which-service">Back</a>
+
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form id="what-you-want-to-tell" class="form" action="what-do-you-want-to-tell-us-about-answer" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                What kind of experience do you want to tell us about?
+              </h1>
+            </legend>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="what-do-you-want-to-tell-1" name="what-do-you-want-to-tell" type="radio" value="Good experience" {{ checked("what-do-you-want-to-tell", "Good experience")}}>
+              <label class="govuk-label govuk-radios__label" for="what-do-you-want-to-tell-1">
+                Good
+              </label>
+            </div>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="what-do-you-want-to-tell-2" name="what-do-you-want-to-tell" type="radio" value="Bad experience" {{ checked("what-do-you-want-to-tell", "Bad experience")}}>
+                <label class="govuk-label govuk-radios__label" for="what-do-you-want-to-tell-2">
+                  Bad
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="what-do-you-want-to-tell-3" name="what-do-you-want-to-tell" type="radio" value="Good and bad experience" {{ checked("what-do-you-want-to-tell", "Good and bad experience")}}>
+                <label class="govuk-label govuk-radios__label" for="what-do-you-want-to-tell-3">
+                  Both good and bad
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

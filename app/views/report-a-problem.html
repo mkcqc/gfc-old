@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Report a problem | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="javascript:history.back();">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Report a problem with this form</h1>
+
+      <form class="form" action="report-a-problem-answer" method="post">
+
+      {% if data['error-reportproblem'] == "error-reportproblem-empty" %}
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+            <h2 class="govuk-error-summary__title" id="error-summary-title">
+              There's a problem
+            </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#report-problem-error">Tell us what went wrong</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+
+        <p>Use this form to tell us if:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+
+          <li>there was a technical problem</li>
+
+          <li>something didn't make sense, like you didn't understand one of our questions</li>
+
+        </ul>
+
+        <div class="govuk-character-count" data-module="character-count" data-maxlength="1500">
+          <div class="govuk-form-group {% if data['error-reportproblem'] == "error-reportproblem-empty" %}govuk-form-group--error{% endif %}">
+            <label class="govuk-label" for="with-hint">
+              What went wrong?
+            </label>
+            {% if data['error-reportproblem'] == "error-reportproblem-empty" %}
+            <span id="report-problem-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Tell us what went wrong
+            </span>
+            {% endif %}
+            <textarea class="govuk-textarea js-character-count " id="with-hint" name="with-hint" rows="5" aria-describedby="with-hint-hint">{{ data['report-problem'] }}</textarea>
+          </div>
+
+          <span id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+            You can enter up to 1500 characters
+          </span>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="report-problem-name">
+            Full name (optional)
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="report-problem-name" name="report-problem-name" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="report-problem-email">
+            Email address (optional)
+          </label>
+          <span id="event-name-hint" class="govuk-hint">
+            Include your email address if you need to hear back from us
+          </span>
+          <input class="govuk-input govuk-input--width-20" id="report-problem-email" name="report-problem-email" type="text">
+        </div>
+
+        <button class="govuk-button">Send</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

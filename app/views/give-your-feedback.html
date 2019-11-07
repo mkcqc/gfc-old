@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Give your feedback | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  {% if checked( "what-do-you-want-to-tell", "Good experience" ) %}
+    <a class="govuk-back-link" href="what-you-want-to-tell-us-about">Back</a>
+  {% else %}
+    <a class="govuk-back-link" href="when-it-happened">Back</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form id="give-your-feedback-form" class="form" action="give-your-feedback-answer" method="post">
+
+      <div class="govuk-form-group">
+
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading">
+            Give us your feedback about {{ data['service-name'] }}
+          </h1>
+        </legend>
+
+        <p class="govuk-body-l">The more detail you give us, the better.</p>
+
+            <p>It helps if you can tell us:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>examples of what they did well or could have done better</li>
+              <li>the people involved or their jobs</li>
+            </ul>
+
+            <label class="govuk-label" for="more-detail">
+              Enter your feedback about {{ data['service-name'] }}
+            </label>
+
+            <span id="give-your-feedback-hint" class="govuk-hint">
+              If you'd rather be anonymous, avoid including things that can identify you
+            </span>
+
+            <textarea class="govuk-textarea" id="give-your-feedback" name="give-your-feedback" rows="9" aria-describedby="give-your-feedback-hint">{{ data['give-your-feedback'] }}</textarea>
+
+          </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

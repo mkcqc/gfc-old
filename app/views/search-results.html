@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {{ data['service-search'] }} - search results | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="find-a-service">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Results for "{{ data['service-search'] }}"</h1>
+
+    <form class="form" action="search-results" method="post">
+      <div class="govuk-form-group">
+        <input name="keywords" value="{{ data['service-search'] }}" class="govuk-input" id="finder-keyword-search" type="search"><button class="search-button">Search</button>
+      </div>
+    </form>
+
+    <div class="search-divider"></div>
+
+    <p><a href="tell-us-which-service" class="govuk-link">I can't find the service I want to tell you about</a></p>
+
+  </div><!--end two thirds-->
+</div><!--end govuk-grid-row-->
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+
+{% include "includes/search-filters.html" %}
+
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    <p class="search-results-total"><span id="count-results"></span> results</p>
+    <ul id="full-search-results" class="search-results nothing-selected">
+      {% include "includes/search-results-1.html" %}
+      {% include "includes/search-results-2.html" %}
+      {% include "includes/search-results-3.html" %}
+    </ul>
+
+    <div id="no-results-text"></div>
+
+    <nav class="gem-c-pagination" role="navigation" aria-label="Pagination">
+      <ul class="gem-c-pagination__list" data-module="track-click">
+          <li class="gem-c-pagination__item gem-c-pagination__item--next">
+            <a href="search-results-page-2" class="gem-c-pagination__link" rel="next" >
+              <span class="gem-c-pagination__link-title">
+                <svg class="gem-c-pagination__link-icon" xmlns="http://www.w3.org/2000/svg" height="13" width="17" viewBox="0 0 17 13">
+                  <path fill="currentColor" d="m10.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                </svg>
+                <span class="gem-c-pagination__link-text">
+                  Next page
+                </span>
+              </span>
+                <span class="gem-c-pagination__link-divider visually-hidden">:</span>
+                <span class="gem-c-pagination__link-label">2 of 3</span>
+            </a>
+          </li>
+      </ul>
+    </nav>
+
+
+  </div>
+</div>
+
+{% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

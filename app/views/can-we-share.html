@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Can we share your feedback? | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  {% if checked( "what-do-you-want-to-tell", "Good experience" ) %}
+    <a class="govuk-back-link" href="give-your-feedback">Back</a>
+  {% else %}
+    <a class="govuk-back-link" href="have-you-worked-there">Back</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form id="can-we-share" class="form" action="can-we-contact-you" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                Can we share your feedback with {{ data['service-name'] }}?
+              </h1>
+            </legend>
+            <p>Sometimes it helps if we can share your feedback with the service. We only share it if either:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>you say we can</li>
+              <li>we think someone's at risk of serious harm</li>
+            </ul>
+
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="can-we-share-1" name="can-we-share" type="radio" value="Yes, you can share my feedback with them" {{ checked( "can-we-share", "Yes, you can share my feedback with them" ) }}>
+                <label class="govuk-label govuk-radios__label" for="can-we-share-1">
+                  Yes, you can share my feedback with them
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="can-we-share-2" name="can-we-share" type="radio" value="No, I would prefer you not to share it with them" {{ checked( "can-we-share", "No, I would prefer you not to share it with them" ) }}>
+                <label class="govuk-label govuk-radios__label" for="can-we-share-2">
+                  No, I would prefer you not to share it with them
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="how-we-handle-information">
+                How we handle information and privacy<span class="govuk-visually-hidden"> (opens in new window)</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+
+
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

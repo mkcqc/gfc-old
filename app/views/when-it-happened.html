@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  When it happened | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="what-you-want-to-tell-us-about">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form id="when-it-happened" class="form" action="when-it-happened-answer" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                When did it happen?
+              </h1>
+            </legend>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="when-did-it-happen-1" name="when-did-it-happen" type="radio" value="It's still happening" {{ checked("when-did-it-happen", "It's still happening")}}>
+                <label class="govuk-label govuk-radios__label" for="when-did-it-happen-1">
+                  It's still happening
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="when-did-it-happen-2" name="when-did-it-happen" type="radio" value="In the past year" {{ checked("when-did-it-happen", "In the past year")}}>
+                <label class="govuk-label govuk-radios__label" for="when-did-it-happen-2">
+                  In the past year
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="when-did-it-happen-3" name="when-did-it-happen" type="radio" value="Over a year ago" {{ checked("when-did-it-happen", "Over a year ago")}}>
+                <label class="govuk-label govuk-radios__label" for="when-did-it-happen-3">
+                  Over a year ago
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

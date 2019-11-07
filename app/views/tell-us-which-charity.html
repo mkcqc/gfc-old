@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Tell us which charity | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="did-you-hear-about-this-form-from-a-charity">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form id="tell-us-which-charity" class="form" action="which-charity-told-you-answer" method="post">
+
+        <div class="govuk-form-group form-group-container">
+          <fieldset class="govuk-fieldset" aria-describedby="which-charity-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">Which charity told you about this form?</h1>
+            </legend>
+            <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="which-charity-1" name="which-charity" type="radio" value="Carers UK" {{ checked("which-charity", "Carers UK")}}>
+                <label class="govuk-label govuk-radios__label" for="which-charity-1">
+                  Carers UK
+                </label> </div>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="which-charity-2" name="which-charity" type="radio" value="Disability Rights UK" {{ checked("which-charity", "Disability Rights UK")}}>
+                  <label class="govuk-label govuk-radios__label" for="which-charity-2">
+                    Disability Rights UK
+                  </label> </div>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="which-charity-3" name="which-charity" type="radio" value="Mind" {{ checked("which-charity", "Mind")}}>
+                  <label class="govuk-label govuk-radios__label" for="which-charity-3">
+                    Mind
+                  </label> </div>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="which-charity-4" name="which-charity" type="radio" value="National Autistic Society" {{ checked("which-charity", "National Autistic Society")}}>
+                  <label class="govuk-label govuk-radios__label" for="which-charity-4">
+                    National Autistic Society
+                  </label> </div>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="which-charity-5" name="which-charity" type="radio" value="The Patients Association" {{ checked("which-charity", "The Patients Association")}}>
+                  <label class="govuk-label govuk-radios__label" for="which-charity-5">
+                    The Patients Association
+                  </label> </div>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="which-charity-6" name="which-charity" type="radio" value="Relatives & Residents Association" {{ checked("which-charity", "Relatives & Residents Association")}}>
+                  <label class="govuk-label govuk-radios__label" for="which-charity-6">
+                    Relatives & Residents Association
+                  </label> </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="which-charity-7" name="which-charity" type="radio" value="another charity" data-aria-controls="conditional-which-charity-7" {{ checked("which-charity", "another charity")}}>
+                <label class="govuk-label govuk-radios__label" for="which-charity-7">
+                  another charity
+                </label> </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-which-charity-7">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="another-charity-name">
+                    Tell us the name of the charity
+                  </label>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="another-charity-name" name="another-charity-name" type="text" value="{{ data['another-charity-name'] }}">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

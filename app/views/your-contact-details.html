@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your contact details - Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="can-we-contact-you">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Your contact details</h1>
+
+      <form id="contact-details-form" class="form" action="did-you-hear-about-this-form-from-a-charity" method="post">
+
+          <div class="govuk-form-group full-name-group">
+            <label class="govuk-label" for="full-name">
+              Full name
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="full-name" name="full-name" value="{{ data['full-name']}}" type="text" autocomplete="name">
+          </div>
+
+          <h2 class="govuk-heading-m">Give us at least one way to contact you</h2>
+
+          <div class="govuk-form-group email-phone-group">
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="contact-email">
+                Email address
+              </label>
+              <span id="contact-email-hint" class="govuk-hint">
+                We'll email you to tell you we've got your feedback
+              </span>
+              <input class="govuk-input govuk-!-width-two-thirds" id="contact-email" name="contact-email" value="{{ data['contact-email']}}" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="contact-phone">
+                UK telephone number
+              </label>
+              <input class="govuk-input govuk-!-width-two-thirds" id="contact-phone" name="contact-phone" value="{{ data['contact-phone']}}" type="text">
+            </div>
+
+          </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

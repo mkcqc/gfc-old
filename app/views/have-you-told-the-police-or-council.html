@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Police and local council | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="abuse-or-neglect">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form id="police-and-local-council" class="form" action="/told-police-council-answer" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                Have you told the police or council safeguarding team about this?
+              </h1>
+            </legend>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="who-have-you-told-1" name="who-have-you-told" type="radio" value="The police" {{ checked( "who-have-you-told", "The police" ) }}>
+                <label class="govuk-label govuk-radios__label" for="who-have-you-told-1">
+                  The police
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="who-have-you-told-2" name="who-have-you-told" type="radio" value="The council safeguarding team" {{ checked( "who-have-you-told", "The council safeguarding team" ) }}>
+                <label class="govuk-label govuk-radios__label" for="who-have-you-told-2">
+                  The council safeguarding team
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="who-have-you-told-3" name="who-have-you-told" type="radio" value="Both the police and the council safeguarding team" {{ checked( "who-have-you-told", "Both the police and the council safeguarding team" ) }}>
+                <label class="govuk-label govuk-radios__label" for="who-have-you-told-3">
+                  Both the police and the council safeguarding team
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="who-have-you-told-4" name="who-have-you-told" type="radio" value="Neither of these" {{ checked( "who-have-you-told", "Neither of these" ) }}>
+                <label class="govuk-label govuk-radios__label" for="who-have-you-told-4">
+                  Neither of these
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Have you worked there? | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  <a class="govuk-back-link" href="have-you-told-the-service">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form id="have-you-worked-there" class="form" action="/have-you-worked-there-answer" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset"  aria-describedby="have-you-worked-there-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                Have you worked at {{ data['service-name'] }}?
+              </h1>
+            </legend>
+            <span id="have-you-worked-there-hint" class="govuk-hint">
+              This includes if you were a contractor or a volunteer. It also includes if you work there now.
+            </span>
+            <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="have-you-worked-there-1" name="have-you-worked-there" type="radio" value="Yes" {{ checked( "have-you-worked-there", "Yes" ) }}>
+                <label class="govuk-label govuk-radios__label" for="have-you-worked-there-1">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="have-you-worked-there-2" name="have-you-worked-there" type="radio" value="No" {{ checked( "have-you-worked-there", "No" ) }}>
+                <label class="govuk-label govuk-radios__label" for="have-you-worked-there-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}
