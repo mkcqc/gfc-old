@@ -90,7 +90,7 @@ if (experienceType == "Good experience"){
 }
 else {
   // Send user to 'have-you-worked-there'
-  res.redirect('/what-date-it-happened')
+  res.redirect('/have-you-told-the-service')
 }
 })
 

@@ -146,9 +146,9 @@ $('#give-your-feedback-form .govuk-button').click(function( event ) {
       $("#feedback-error-empty").remove();
       $(".govuk-error-summary").remove();
       $('#give-your-feedback').before('<span id="' + errorID + '" class="govuk-error-message"><span class="govuk-visually-hidden">Error:</span> ' + errorMessage + '</span>');
-      $('.govuk-form-group').addClass("govuk-form-group--error");
+      $('.give-your-feedback').addClass("govuk-form-group--error");
       $('#give-your-feedback').addClass("govuk-textarea--error");
-      $('.govuk-form-group').before('<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary"><h2 class="govuk-error-summary__title" id="error-summary-title">There&apos;s a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"><li><a href="#' + errorID + '">' + errorMessage + '</a></li></ul></div></div>');
+      $('form').before('<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary"><h2 class="govuk-error-summary__title" id="error-summary-title">There&apos;s a problem</h2><div class="govuk-error-summary__body"><ul class="govuk-list govuk-error-summary__list"><li><a href="#' + errorID + '">' + errorMessage + '</a></li></ul></div></div>');
       event.preventDefault();
     } else {
       $(this).trigger('click');

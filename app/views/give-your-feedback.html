@@ -30,36 +30,60 @@
 
       <form id="give-your-feedback-form" class="form" action="give-your-feedback-answer" method="post">
 
-      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
 
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-          <h1 class="govuk-fieldset__heading">
-            Give us your feedback about {{ data['service-name'] }}
-          </h1>
-        </legend>
+          <div class="govuk-form-group give-your-feedback">
 
-        <p class="govuk-body-l">The more detail you give us, the better.</p>
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              {% if data['service-name'] != 'the service' %}
+                <span class="govuk-caption-xl">{{ data['service-name'] }}</span>
+              {% endif %}
+              <h1 class="govuk-fieldset__heading">
+                Give your feedback
+              </h1>
+            </legend>
 
-            <p>It helps if you can tell us:</p>
+            <p class="govuk-body-l">The more detail you give us, the better.</p>
 
-            <ul class="govuk-list govuk-list--bullet">
-              <li>examples of what they did well or could have done better</li>
-              <li>the people involved or their jobs</li>
-            </ul>
+                <p>It helps if you can tell us:</p>
 
-            <label class="govuk-label" for="more-detail">
-              Enter your feedback about {{ data['service-name'] }}
-            </label>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>examples of what they did well or could have done better</li>
+                  <li>the people involved or their jobs</li>
+                </ul>
 
-            <span id="give-your-feedback-hint" class="govuk-hint">
-              If you'd rather be anonymous, avoid including things that can identify you
-            </span>
+                <label class="govuk-label" for="more-detail">
+                  Enter your feedback about {{ data['service-name'] }}
+                </label>
 
-            <textarea class="govuk-textarea" id="give-your-feedback" name="give-your-feedback" rows="9" aria-describedby="give-your-feedback-hint">{{ data['give-your-feedback'] }}</textarea>
+                <span id="give-your-feedback-hint" class="govuk-hint">
+                  If you'd rather be anonymous, avoid including things that can identify you
+                </span>
 
-          </div>
+                <textarea class="govuk-textarea" id="give-your-feedback" name="give-your-feedback" rows="9" aria-describedby="give-your-feedback-hint">{{ data['give-your-feedback'] }}</textarea>
 
-        <button class="govuk-button">Continue</button>
+              </div>
+
+              <div class="govuk-form-group exact-date">
+                <label class="govuk-label" for="exact-date">
+                  Can you be more exact about when it happened? (optional)
+                </label>
+                <span id="exact-date-hint" class="govuk-hint">
+                  For example, can you give a date, month or year?
+                </span>
+                <input class="govuk-input govuk-!-width-two-thirds" id="exact-date" name="exact-date" type="text" value="{{ data['exact-date'] }}">
+              </div>
+              <div class="govuk-form-group where-did-it-happen">
+                <label class="govuk-label" for="exact-location">
+                  Can you tell us exactly where it happened? (optional)
+                </label>
+                <span id="exact-location-hint" class="govuk-hint">
+                  For example, if you're telling us about a hospital, which ward or department?
+                </span>
+                <input class="govuk-input govuk-!-width-two-thirds" id="exact-location" name="exact-location" type="text" value="{{ data['exact-location'] }}">
+              </div>
+
+            <button class="govuk-button">Continue</button>
 
       </form>
 
