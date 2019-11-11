@@ -93,9 +93,20 @@
           </dd>
         </div>
         {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your feedback
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['give-your-feedback'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="give-your-feedback">
+              Change<span class="govuk-visually-hidden"> feedback</span>
+            </a>
+          </dd>
+        </div>
         {% if data['exact-date'] == '' %}
-        <!-- question not applicable -->
-        {% elseif data['what-do-you-want-to-tell'] == 'Good experience' %}
         <!-- question not applicable -->
         {% else %}
         <div class="govuk-summary-list__row">
@@ -114,8 +125,6 @@
         {% endif %}
         {% if data['exact-location'] == '' %}
         <!-- question not applicable -->
-        {% elseif data['what-do-you-want-to-tell'] == 'Good experience' %}
-        <!-- question not applicable -->
         {% else %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -130,20 +139,7 @@
             </a>
           </dd>
         </div>
-        {% endif %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Your feedback
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['give-your-feedback'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="give-your-feedback">
-              Change<span class="govuk-visually-hidden"> feedback</span>
-            </a>
-          </dd>
-        </div>
+        {% endif %}        
         {% if data['have-you-told-the-service'] == None %}
         <!-- question not applicable -->
         {% else %}
