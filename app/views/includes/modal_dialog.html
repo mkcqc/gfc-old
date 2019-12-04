@@ -1,0 +1,17 @@
+<dialog id="js-modal-dialog">
+  <div class="modal-dialog__inner">
+	  <h1 id="dialog-title" class="heading-large">
+      You're almost out of time
+    </h1>
+    <div class="modal-dialog__inner__text">
+      <div id="timeout-message" class="timer" aria-hidden="true" aria-relevant="additions"><p>In <span id="time">20 minutes</span> we'll reset this form.</p>
+      <p>This means you'll lose the information you've entered.</p>
+      <p>We do this if it's 2 hours since you last clicked or typed anything. It helps us keep your information secure.</p></div>
+      <div id="at-timer" class="at-timer visually-hidden" role="status"></div>
+    </div>
+    <div class="modal-dialog__inner__block">
+      <input type="hidden" id="hidden" name="hidden" value="0" autofocus>
+      <button onclick="closeDialog()" class="button dialog-button modal-dialog__inner__button js-dialog-close">Give me another 2 hours</button>
+    </div>
+  </div>
+</dialog>

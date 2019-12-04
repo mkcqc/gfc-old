@@ -464,6 +464,79 @@ $('input:checkbox').change(function () {
 }
 })
 
+// Timeout warning
+
+var timeoutDialog = document.getElementById("js-modal-dialog");
+function closeDialog() {
+  timeoutDialog.close();
+}
+
+function startTimer(duration, display) {
+    var start = Date.now(),
+        diff,
+        minutes,
+        seconds;
+    function timer() {
+        // get the number of seconds that have elapsed since
+        // startTimer() was called
+        diff = duration - (((Date.now() - start) / 1000) | 0);
+
+        // does the same job as parseInt truncates the float
+        minutes = (diff / 60) | 0;
+        seconds = (diff % 60) | 0;
+
+        // display.textContent = minutes + " minutes " + seconds + " seconds ";
+
+        if (diff == 120) {
+
+          display.textContent = minutes + " minutes ";
+
+        } else if (diff < 120 && diff > 60) {
+
+          display.textContent = minutes + " minute " + seconds + " seconds ";
+
+        } else if (diff == 60) {
+
+          display.textContent = minutes + " minute ";
+
+        } else if (diff < 60 && diff > 1) {
+
+          display.textContent = seconds + " seconds ";
+
+        } else if (diff == 1) {
+
+          display.textContent = seconds + " second ";
+
+        } else if (diff <= 0 && diff > -10) {
+
+          document.getElementById("timeout-message").innerHTML = "We're about to reset this form and redirect you to another page.";
+
+        } else if (diff <= -10) {
+
+          window.location.replace("we-have-reset-this-form.html");
+
+        } else {
+
+          display.textContent = minutes + " minutes " + seconds + " seconds ";
+
+        }
+
+    };
+    // we don't want to wait a full second before the timer starts
+    timer();
+    setInterval(timer, 1000);
+}
+
+window.onload = function () {
+    var twoMinutes = (60 * 2) + 10,
+        display = document.querySelector('#time');
+    startTimer(twoMinutes, display);
+};
+
+
+
+
+
 // Warn about using the kit in production
 if (window.console && window.console.info) {
   window.console.info('GOV.UK Prototype Kit - do not use for production')
@@ -471,4 +544,5 @@ if (window.console && window.console.info) {
 
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
+  GOVUK.modalDialog.init()
 })

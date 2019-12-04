@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Give your feedback | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+  {% include "includes/modal_dialog.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  {% if checked( "what-do-you-want-to-tell", "Good experience" ) %}
+    <a class="govuk-back-link" href="what-you-want-to-tell-us-about">Back</a>
+  {% else %}
+    <a class="govuk-back-link" href="when-it-happened">Back</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row" id="content">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form id="give-your-feedback-form" class="form" action="give-your-feedback-answer" method="post">
+
+        <fieldset class="govuk-fieldset">
+
+          <div class="govuk-form-group give-your-feedback">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              {% if data['service-name'] != 'the service' %}
+                <span class="govuk-caption-xl">{{ data['service-name'] }}</span>
+              {% endif %}
+              <h1 class="govuk-fieldset__heading">
+                Give your feedback
+              </h1>
+            </legend>
+
+            <p class="govuk-body-l">The more detail you give us, the better.</p>
+
+                <p>It helps if you can tell us:</p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>examples of what they did well or could have done better</li>
+                  <li>the people involved or their jobs</li>
+                </ul>
+
+                <label class="govuk-label" for="more-detail">
+                  Enter your feedback about {{ data['service-name'] }}
+                </label>
+
+                <span id="give-your-feedback-hint" class="govuk-hint">
+                  If you'd rather be anonymous, avoid including things that can identify you
+                </span>
+
+                <textarea class="govuk-textarea" id="give-your-feedback" name="give-your-feedback" rows="9" aria-describedby="give-your-feedback-hint">{{ data['give-your-feedback'] }}</textarea>
+
+              </div>
+
+              <div class="govuk-form-group exact-date">
+                <label class="govuk-label" for="exact-date">
+                  Can you be more exact about when it happened? (optional)
+                </label>
+                <span id="exact-date-hint" class="govuk-hint">
+                  For example, can you give a date, month or year?
+                </span>
+                <input class="govuk-input govuk-!-width-two-thirds" id="exact-date" name="exact-date" type="text" value="{{ data['exact-date'] }}">
+              </div>
+              <div class="govuk-form-group where-did-it-happen">
+                <label class="govuk-label" for="exact-location">
+                  Can you tell us exactly where it happened? (optional)
+                </label>
+                <span id="exact-location-hint" class="govuk-hint">
+                  For example, if you're telling us about a hospital, which ward or department?
+                </span>
+                <input class="govuk-input govuk-!-width-two-thirds" id="exact-location" name="exact-location" type="text" value="{{ data['exact-location'] }}">
+              </div>
+
+            <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}

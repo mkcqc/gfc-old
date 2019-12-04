@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  We've reset this form - Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        We've reset this form
+      </h1>
+
+      <p class="govuk-body">We're sorry. We had to reset this form because it had been 2 hours since you'd clicked or typed anything. We do this to keep your information secure, for example if you're using a shared computer.</p>
+
+      <p class="govuk-body">It means you'll need to <a class="govuk-link" href="start">go back to the start</a> to enter your feedback.</p>
+
+      <p class="govuk-body">We'd still like you to tell us about your experience. People's feedback helps us understand the quality of care they get. It makes care better for everybody.</p>
+
+    </div>
+  </div>
+
+  {% endblock %}
+
+  {% block footer %}
+
+    {% include "includes/footer.html" %}
+
+  {% endblock %}

@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Give your feedback | Give feedback on care
+{% endblock %}
+
+{% block header %}
+
+  {% include "includes/cookie-banner.html" %}
+
+  {% include "includes/header.html" %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/phase-banner.html" %}
+
+  {% if checked( "what-do-you-want-to-tell", "Good experience" ) %}
+    <a class="govuk-back-link" href="what-you-want-to-tell-us-about">Back</a>
+  {% else %}
+    <a class="govuk-back-link" href="when-it-happened">Back</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form id="give-your-feedback-form" class="form" action="give-your-feedback-answer" method="post">
+
+        <fieldset class="govuk-fieldset">
+
+          <div class="govuk-form-group give-your-feedback">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              {% if data['service-name'] != 'the service' %}
+                <span class="govuk-caption-xl">{{ data['service-name'] }}</span>
+              {% endif %}
+              <h1 class="govuk-fieldset__heading">
+                Give your feedback
+              </h1>
+            </legend>
+
+                <label class="govuk-label" for="more-detail">
+                  Enter your feedback about {{ data['service-name'] }}
+                </label>
+
+                <span id="give-your-feedback-hint" class="govuk-hint">
+                  Try to give clear examples of what they did well
+                </span>
+
+                <textarea class="govuk-textarea" id="give-your-feedback" name="give-your-feedback" rows="9" aria-describedby="give-your-feedback-hint">{{ data['give-your-feedback'] }}</textarea>
+
+              </div>
+
+            <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  {% include "includes/get-help.html" %}
+
+{% endblock %}
+
+{% block footer %}
+
+  {% include "includes/footer.html" %}
+
+{% endblock %}
