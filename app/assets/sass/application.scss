@@ -418,14 +418,13 @@ button.search-button:focus {
 .search-results {
   margin: 0;
   padding: 0;
-  border-top: 1px solid #bfc1c3;
+  border-top: 1px solid #000;
 }
 
 .search-result {
   width: 100%;
   display: block;
   position: relative;
-  border-bottom: 1px solid #bfc1c3;
   padding-top: 20px;
 }
 
@@ -508,7 +507,7 @@ button.search-button:focus {
 /* search filters */
 
 .search-filters {
-  padding-top: 10px;
+  padding-top: 6px;
 }
 
 .search-filters .govuk-details__summary:focus {
@@ -520,6 +519,9 @@ button.search-button:focus {
 
 .search-filters .govuk-details {
   clear: both;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #bfc1c3;
+  margin-bottom: 10px;
 }
 
 .search-filters .govuk-details__summary:before {
@@ -535,10 +537,10 @@ button.search-button:focus {
   content: "";
   position: absolute;
   display: block;
-  width: 45px;
+  width: 30px;
   height: 38px;
   top: 0;
-  right: 15px;
+  left: 0;
   background: url(../images/search-filter.svg) no-repeat 0 center;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
@@ -570,18 +572,11 @@ button.search-button:focus {
   display: block;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: 700;
-  padding: 7px 35px 7px 13px;
+  padding: 7px 35px 7px 35px;
   margin: 0;
   font-size: 19px;
   line-height: 1.3157894737;
-  color: #000;
   position: relative;
-  background-color: #dee0e2;
-}
-
-.search-filters .govuk-details__summary:focus, .search-filters .govuk-details__summary:active {
-  background-color: #dee0e2;
 }
 
 .search-filters .govuk-details {
@@ -592,11 +587,25 @@ button.search-button:focus {
     text-decoration: none;
 }
 
+.search-filters .govuk-details__summary:hover .govuk-details__summary-text {
+  color: #1d70b8;
+  text-decoration: underline;
+}
+
+.search-filters .govuk-details__summary:focus .govuk-details__summary-text {
+  color: #000;
+  background-color: #ffdd00;
+  box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+}
+
+.search-filters .govuk-details__summary:focus .govuk-details__summary-text, .search-filters .govuk-details__summary-text:focus {
+  text-decoration: none;
+}
+
 .search-filters .govuk-details__text {
   background: #ffffff;
   padding: 13px;
-  border: #dee0e2 5px solid;
-  border-top: none;
+  border: none;
   max-height: 220px;
   overflow-x: hidden;
   overflow-y: scroll;
