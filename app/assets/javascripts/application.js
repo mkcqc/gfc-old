@@ -360,7 +360,7 @@ $(window).on("scroll", function() {
 //  document.getElementById('count-results').innerHTML = 43;
 //})
 
-// Simulate filter behaviour on search results
+// Simulate filter behaviour on search results (javascript version)
 
 // On page load
 $(document).ready(function() {
@@ -392,7 +392,7 @@ $('input:checkbox').change(function() {
   }
 })
 
-$('input:checkbox').change(function() {
+$('.javascript input:checkbox').change(function() {
   if ($('input:checkbox:checked').length > 0) {
     if ($('#servicetype-careinhome').is(':checked')) {
       $('.result-careinhome').show();

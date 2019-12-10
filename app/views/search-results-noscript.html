@@ -22,7 +22,7 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds javascript">
+  <div class="govuk-grid-column-two-thirds noscript">
 
     <h1 class="govuk-heading-xl">Results for "{{ data['service-search'] }}"</h1>
 
@@ -42,7 +42,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-third">
 
-{% include "includes/search-filters.html" %}
+{% include "includes/search-filters-noscript.html" %}
 
   </div>
   <div class="govuk-grid-column-two-thirds">
