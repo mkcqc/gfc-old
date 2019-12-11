@@ -354,13 +354,7 @@ $(window).on("scroll", function() {
       }
 })
 
-// Results counter
-
-//$(window).on("load", function() {
-//  document.getElementById('count-results').innerHTML = 43;
-//})
-
-// Simulate filter behaviour on search results (javascript version)
+// Simulate filter behaviour on search results
 
 // On page load
 $(document).ready(function() {
@@ -369,8 +363,10 @@ $(document).ready(function() {
   $('#count-results').html("43");
 })
 
+// Filter selection - javascript version
+
 // If a box is checked include pages 2 and 3 in filtered results, hide all search-results so only results that match filters are displayed
-$('input:checkbox').change(function() {
+$('.javascript input:checkbox').change(function() {
   if ($('input:checkbox:checked').length == 1) {
     $('.page-2').show();
     $('.page-3').show();
@@ -382,7 +378,7 @@ $('input:checkbox').change(function() {
   }
 })
 
-$('input:checkbox').change(function() {
+$('.javascript input:checkbox').change(function() {
   if ($('input:checkbox:checked').length > 0) {
     if ($('#servicetype-carehomes').is(':checked')) {
       $('.result-carehome').show();
@@ -402,7 +398,7 @@ $('.javascript input:checkbox').change(function() {
   }
 })
 
-$('input:checkbox').change(function() {
+$('.javascript input:checkbox').change(function() {
   if ($('input:checkbox:checked').length > 0) {
     if ($('#servicetype-gps').is(':checked')) {
       $('.result-gp').show();
@@ -412,7 +408,7 @@ $('input:checkbox').change(function() {
   }
 })
 
-$('input:checkbox').change(function() {
+$('.javascript input:checkbox').change(function() {
   if ($('input:checkbox:checked').length > 0) {
     if ($('#servicetype-dentists').is(':checked')) {
       $('.result-dentist').show();
@@ -422,7 +418,7 @@ $('input:checkbox').change(function() {
   }
 })
 
-$('input:checkbox').change(function() {
+$('.javascript input:checkbox').change(function() {
   if ($('input:checkbox:checked').length > 0) {
     if ($('#servicetype-independentdoctors').is(':checked')) {
       $('.result-independentdoctor').show();
@@ -432,7 +428,7 @@ $('input:checkbox').change(function() {
   }
 })
 
-$('input:checkbox').change(function() {
+$('.javascript input:checkbox').change(function() {
   if ($('input:checkbox:checked').length > 0) {
     if ($('#servicetype-nhshospitals').is(':checked')) {
       $('.result-nhshospital').show();
@@ -442,7 +438,7 @@ $('input:checkbox').change(function() {
   }
 })
 
-$('input:checkbox').change(function() {
+$('.javascript input:checkbox').change(function() {
   if ($('input:checkbox:checked').length > 0) {
     if ($('#servicetype-remote').is(':checked')) {
       $('.result-remote').show();
@@ -452,17 +448,70 @@ $('input:checkbox').change(function() {
   }
 })
 
-$('input:checkbox').change(function () {
-  var countResults = $('ul.search-results').find("li.search-result:visible").length;
-  if ($("input:checkbox:checked").length > 0) {
-    $('#count-results').html(countResults);
-}
-  else {
-    $('.page-2').hide();
-    $('.page-3').hide();
-    $('#count-results').html(countResults);
-}
+$('.javascript input:checkbox').change(function () {
+    var countResults = $('ul.search-results').find("li.search-result:visible").length;
+    if ($("input:checkbox:checked").length > 0) {
+      $('#count-results').html(countResults);
+  }
+    else {
+      $('.page-2').hide();
+      $('.page-3').hide();
+      $('#count-results').html(countResults);
+  }
 })
+
+// Filter selection - noscript version
+
+function applyFilter() {
+  var countResults = $('ul.search-results').find("li.search-result:visible").length;
+  if ($('#servicetype-carehomes').is(':checked')) {
+    $('.result-carehome').show();
+  } else {
+    $('.result-carehome').hide();
+  }
+  if ($('#servicetype-careinhome').is(':checked')) {
+    $('.result-careinhome').show();
+  } else {
+    $('.result-careinhome').hide();
+  }
+  if ($('#servicetype-gps').is(':checked')) {
+    $('.result-gp').show();
+  } else {
+    $('.result-gp').hide();
+  }
+  if ($('#servicetype-dentists').is(':checked')) {
+    $('.result-dentist').show();
+  } else {
+    $('.result-dentist').hide();
+  }
+  if ($('#servicetype-independentdoctors').is(':checked')) {
+    $('.result-independentdoctor').show();
+  } else {
+    $('.result-independentdoctor').hide();
+  }
+  if ($('#servicetype-nhshospitals').is(':checked')) {
+    $('.result-nhshospital').show();
+  } else {
+    $('.result-nhshospital').hide();
+  }
+  if ($('#servicetype-remote').is(':checked')) {
+    $('.result-remote').show();
+  } else {
+    $('.result-remote').hide();
+  }
+  if ($('input:checkbox:checked').length == 0) {
+    $('.result-carehome').show();
+    $('.result-careinhome').show();
+    $('.result-gp').show();
+    $('.result-dentist').show();
+    $('.result-independentdoctor').show();
+    $('.result-nhshospital').show();
+    $('.result-remote').show();
+  }
+  $('#count-results').html(countResults);
+}
+
+
 
 // Timeout warning
 
