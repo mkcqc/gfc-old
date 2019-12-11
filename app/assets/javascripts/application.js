@@ -511,8 +511,6 @@ function applyFilter() {
   $('#count-results').html(countResults);
 }
 
-
-
 // Timeout warning
 
 var timeoutDialog = document.getElementById("js-modal-dialog");
