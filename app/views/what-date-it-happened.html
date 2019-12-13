@@ -28,6 +28,9 @@
       <form class="form" action="what-date-it-happened-answer" method="post">
 
         <div class="govuk-form-group">
+          {% if data['service-name'] != 'the service' %}
+            <span class="govuk-caption-xl">{{ data['service-name'] }}</span>
+          {% endif %}
           <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--xl" for="exact-date">
               Can you be more exact about when it happened?
             </label>

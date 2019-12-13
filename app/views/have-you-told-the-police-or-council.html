@@ -29,6 +29,9 @@
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              {% if data['service-name'] != 'the service' %}
+                <span class="govuk-caption-xl">{{ data['service-name'] }}</span>
+              {% endif %}
               <h1 class="govuk-fieldset__heading">
                 Have you told the police or council safeguarding team about this?
               </h1>

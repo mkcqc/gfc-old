@@ -26,6 +26,10 @@
 
       <form class="form" action="can-we-share" method="post">
 
+        {% if data['service-name'] != 'the service' %}
+          <span class="govuk-caption-xl">{{ data['service-name'] }}</span>
+        {% endif %}
+
         <h1 class="govuk-heading-xl">Check if the law will protect you</h1>
 
         <p class="govuk-body-l">In some circumstances, the law will protect you if you raise a concern about somewhere you work. This is sometimes called whistleblowing.</p>

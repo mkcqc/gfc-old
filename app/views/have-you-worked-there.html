@@ -24,11 +24,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form id="have-you-worked-there" class="form" action="/have-you-worked-there-answer" method="post">
+      <form id="have-you-worked-there" class="form" action="/can-we-share" method="post">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset"  aria-describedby="have-you-worked-there-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              {% if data['service-name'] != 'the service' %}
+                <span class="govuk-caption-xl">{{ data['service-name'] }}</span>
+              {% endif %}
               <h1 class="govuk-fieldset__heading">
                 Have you worked at {{ data['service-name'] }}?
               </h1>
@@ -36,18 +39,30 @@
             <span id="have-you-worked-there-hint" class="govuk-hint">
               This includes if you were a contractor or a volunteer. It also includes if you work there now.
             </span>
-            <div class="govuk-radios govuk-radios--inline">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="have-you-worked-there-1" name="have-you-worked-there" type="radio" value="Yes" {{ checked( "have-you-worked-there", "Yes" ) }}>
-                <label class="govuk-label govuk-radios__label" for="have-you-worked-there-1">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="have-you-worked-there-2" name="have-you-worked-there" type="radio" value="No" {{ checked( "have-you-worked-there", "No" ) }}>
-                <label class="govuk-label govuk-radios__label" for="have-you-worked-there-2">
-                  No
-                </label>
+
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+            <div class="govuk-radios">
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="have-you-worked-there-1" name="have-you-worked-there" type="radio" value="Yes" data-aria-controls="conditional-have-you-worked-there-conditional" {{ checked( "have-you-worked-there", "Yes" ) }}>
+                  <label class="govuk-label govuk-radios__label" for="have-you-worked-there">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-have-you-worked-there-conditional">
+
+                  <p class="govuk-body">In some circumstances, the law will protect you if you raise a concern about somewhere you work. This is sometimes called whistleblowing.</p>
+
+                  <p class="govuk-body">Your rights are set out in the <a href="https://www.gov.uk/government/publications/the-public-interest-disclosure-act" target="_blank">Public Interest Disclosure Act</a> (PIDA).</p>
+
+                  <p class="govuk-body">It's important to check if PIDA applies to you. This might mean talking to a lawyer, a trade union or an organisation like <a href="https://www.pcaw.org.uk" target="_blank">Public Concern at Work</a> - even if that means you decide not submit your feedback now.</p>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="have-you-worked-there-2" name="have-you-worked-there" type="radio" value="No" {{ checked( "have-you-worked-there", "No" ) }}>
+                  <label class="govuk-label govuk-radios__label" for="have-you-worked-there-2">
+                    No
+                  </label>
+                </div>
               </div>
             </div>
           </fieldset>

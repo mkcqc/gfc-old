@@ -109,21 +109,6 @@ else {
 }
 })
 
-// Have you worked for the service page: if user selects yes, redirect to check-if-the-law-will-protect-you. Otherwise redirect to can-we-share.
-router.post('/have-you-worked-there-answer', function (req, res) {
-// Make a variable and give it the value from 'have-you-worked-there'
-var workedThere = req.session.data['have-you-worked-there']
-// Check whether the variable matches a condition
-if (workedThere == "Yes"){
-  // Send user to 'check-if-the-law-will-protect-you'
-  res.redirect('/check-if-the-law-will-protect-you')
-}
-else {
-  // Send user to 'can-we-share'
-  res.redirect('/can-we-share')
-}
-})
-
 // Can we contact you page: if the user selects yes, redirect to your-contact-details. Otherwise redirect to did-you-hear-about-this-form-from-a-charity.
 router.post('/can-we-contact-you-answer', function (req, res) {
 // Make a variable and give it the value from 'can-we-contact-you'

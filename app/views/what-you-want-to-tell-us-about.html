@@ -38,6 +38,9 @@
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              {% if data['service-name'] != 'the service' %}
+                <span class="govuk-caption-xl">{{ data['service-name'] }}</span>
+              {% endif %}
               <h1 class="govuk-fieldset__heading">
                 What kind of experience do you want to tell us about?
               </h1>
