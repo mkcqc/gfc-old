@@ -23,6 +23,12 @@ $govuk-assets-path: '/govuk/assets/';
     background: #dee0e4;
 }
 
+// Skip govuk-link
+
+.govuk-skip-link:link, .govuk-skip-link:visited, .govuk-skip-link:hover, .govuk-skip-link:active, .govuk-skip-link:focus {
+  text-decoration: underline;
+}
+
 // Cookie banner styles
 
 .gem-c-cookie-banner__confirmation {
@@ -357,7 +363,7 @@ $govuk-assets-path: '/govuk/assets/';
 .govuk-header__link--service-name:focus {
   outline: 3px solid #ffdd00;
   background-color: #ffdd00;
-  color: #fff;
+  color: #000;
 }
 
 // Right rail styles
@@ -728,12 +734,14 @@ a.app-c-back-to-top {
     color: #005ea5;
     margin-bottom: 0;
     padding: 15px 15px 15px 0;
-    width: 66.6666666667%;
 }
 
 a.app-c-back-to-top:focus {
-    background: transparent;
-    outline: none;
+    background-color: #ffdd00;
+    color: #0b0c0c;
+    outline: 3px solid transparent;
+    box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+    text-decoration: none;
 }
 
 a.app-c-back-to-top:focus span {
