@@ -1,3 +1,5 @@
+@import "unbranded";
+
 // global styles for <a> and <p> tags
 $govuk-global-styles: true;
 
@@ -16,6 +18,16 @@ $govuk-assets-path: '/govuk/assets/';
 @import "components/cookie-banner";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+// Set font to Arial
+
+html, body, form, fieldset, table, tr, td, img {
+    font-family: arial, sans-serif;
+}
+
+input, button, select, textarea, optgroup, option {
+    font-family: inherit;
+}
 
 // Grey background to match footer-wrapper
 
@@ -370,6 +382,10 @@ $govuk-assets-path: '/govuk/assets/';
 
 .app-related-items {
   border-color: #602662;
+}
+
+.app-related-items a {
+  line-height: 1.45;
 }
 
 // Footer styles

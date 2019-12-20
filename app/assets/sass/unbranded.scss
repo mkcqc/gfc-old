@@ -5,7 +5,7 @@
 
 // Import colour palette and applied colours so that we can use
 // $govuk-body-background-colour in our overrides below.
-// 
+//
 // If you need to enable compatibility mode or the legacy palette, do that
 // *before* these imports.
 @import "node_modules/govuk-frontend/govuk/settings/colours-palette";
@@ -15,7 +15,7 @@
 $govuk-global-styles: true;
 
 // Override the govuk-frontend font stack
-$govuk-font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+$govuk-font-family: "Arial", "Helvetica", sans-serif;
 
 // Override the canvas background colour, which is normally grey to blend with
 // the GOV.UK footer.
