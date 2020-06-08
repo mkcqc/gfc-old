@@ -628,9 +628,9 @@ button.search-button:focus {
   background: #ffffff;
   padding: 13px;
   border: none;
-  max-height: 220px;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  // max-height: 220px;
+  // overflow-x: hidden;
+  // overflow-y: scroll;
 }
 
 .search-filters ::-webkit-scrollbar {
